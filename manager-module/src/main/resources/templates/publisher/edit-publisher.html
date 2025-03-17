@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="top"></div>
+<body class='editbgi'>
+<form action="update" method="post" th:object="${pub}">
+<table class='tab' style='background-color:antiquewhite'>
+  <tr>
+   	<td class='tatd'>Publisher's ID</td>
+   	<td class='tatd'><label class='la' th:text="${pub.pubid}"></label>
+	  <input type='hidden' th:field="*{pubid}"  required/>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Publisher's Name</td>
+   	<td class='tatd'>
+	  <input class='tbb' type='text' placeholder="Edit Name" id='publisher' th:field="*{publisher}" required/>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Publisher's Address</td>
+   	<td class='tatd'>
+	  <textarea class='tbb' placeholder="Edit Address" id='address' th:field="*{address}" required>
+	  </textarea>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Publisher's Email ID</td>
+   	<td class='tatd'>
+	  <input class='tbb' placeholder="Edit Email ID" type='text' id='email' th:field="*{email}" required/>
+  	</td>
+  </tr>
+  <tr>
+  	<td class='tatd' colspan="2" align="center">
+   		<button class='btr'>Update Category</button>
+   		<input type='button' value='Cancel' class='btr' style='background-color:orange' onclick='history.back()'>
+    </td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>

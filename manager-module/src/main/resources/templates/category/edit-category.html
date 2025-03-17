@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="top"></div>
+<body class='editbgi'>
+<form action="update" method="post" th:object="${cat}">
+<table class='tab' style='background-color:antiquewhite'>
+  <tr>
+   	<td class='tatd'>Category ID</td>
+   	<td class='tatd'><label class='la' th:text="${cat.catid}"></label>
+	  <input type='hidden'  th:field="*{catid}" required/>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Category's Name<span>*</span></td>
+   	<td class='tatd'>
+	  <input class='tbb' placeholder="Edit Name" type='text' th:field="*{category}" id='category' required/>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Edit Category's Description<span>*</span></td>
+   	<td class='tatd'>
+	  <textarea class='tbb' th:field="*{description}" style="height:12vh" id='description' required>
+	  </textarea>
+  	</td>
+  </tr>
+  <tr>
+  	<td class='tatd' colspan="2" align="center">
+   		<button class='btr'>Update Category</button>
+   		<input type='button' value='cancel' class='btr' style='background-color:orange' onclick='history.back()'>
+    </td>
+  </tr>
+ </table>
+ 	
+</form>
+</body>
+</html>

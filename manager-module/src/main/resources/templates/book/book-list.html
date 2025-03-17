@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ </head>
+ <body class='listbgi'>
+  <form>
+  <div th:insert="top"></div>
+  <div class='container'>
+  <div class='card'>
+  <div class='card-header'>
+  	<div th:insert="book/pagination"></div>
+  </div>
+  <div class='card-body'>
+  <div class='dvv' th:if="${blist.empty}">
+   <label class='lah text-danger'>Sorry, No books found in BookStore!</label>
+  </div>
+  <div th:if="${!blist.empty}">
+  <table class='table table-hover'>
+   <thead>
+    <tr>
+     <th class='tdr'>Book ID</th>
+     <th class='tdr'>Book Title</th>
+     <th class='tdr'>Book Author</th>
+     <th class='tdr'>Category ID</th>
+     <th class='tdr'>Publisher ID</th>
+     <th class='tdr'>No. of Copies</th>
+     <th class='tdr'>Book Price</th>
+     <th class='tdr'>Stock</th>
+     <th class='tdr' style='color:darkmagenta'>Action</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="book:${blist}">
+     <td class='tdr' th:text="${book.bid}"></td>
+     <td class='tdr' th:text="${book.title}"></td>
+     <td class='tdr' th:text="${book.author}"></td>
+     <td class='tdr'><a th:href='@{/bookstore/inventory/category/details(cid=${book.catid})}' th:text="${book.catid}" style='text-decoration:underline'></a></td>
+     <td class='tdr'><a th:href='@{/bookstore/inventory/publisher/details(pid=${book.pubid})}' th:text="${book.pubid}" style='text-decoration:underline'></a></td>
+     <td class='tdr' th:text="${book.copies}"></td>
+     <td class='tdr' th:text="${'&#8377'+book.price}"></td>
+     <td class='tdr' th:if="${book.copies>0}" style='color:green'>In Stock</td>
+     <td class='tdr' th:if="${book.copies==0}" style='color:red'>Out of Stock</td>
+     <td class='tdr'>
+      <a th:href="@{edit(bid=${book.bid})}">Edit | </a>
+      <a th:href="@{remove(bid=${book.bid})}" onclick='confirm("Are you sure to remove?")'>Remove</a> 
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
+   <div class='dvv'>
+     <a class='btl btn-info' href='add'>Add New Book</a>
+     <a class='btl btn-warning' href='../home'>Back</a>
+  </div>
+  </div>
+  </form>
+ </body>
+ </html>

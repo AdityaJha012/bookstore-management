@@ -1,0 +1,84 @@
+<html  xmlns:th="http://www.thymeleaf.org">
+ <head>
+   <script th:src="@{/JS/script.js}"> </script>
+   <link th:href='@{/CSS/style.css}' rel='stylesheet'>
+   <link th:href='@{/CSS/login.css}' rel='stylesheet'>
+   <link th:href='@{/CSS/bootstrap.min.css}' rel='stylesheet'>
+ </head>
+<body class='logbgi'>
+ <div class='dvv'>
+   <label class='lah' style='text-decoration:underline;font-size:2.5vw'>User Registration</label>
+  </div>
+  <hr>
+<div class='container'>
+ <div class='card mx-auto col-md-12'>
+  <div class='card-body'>
+   <div class='dvv'>
+    <label class='la' style='color:red' th:text='${msg}'></label>
+   </div>
+   <form action="register" method="post" th:object="${user}">
+   <div class='row form-group'>
+      <div class='col-md-12'>
+       	<label for="userid">User ID</label><span> *</span>
+       	<input type='text' placeholder="Enter User ID" th:field="*{userid}" id='userid' class='form-control' required/>
+      </div>
+    </div>
+    <div class='row form-group'>
+      <div class='col-md-6'>
+       	<label for="password">Password</label><span> *</span>
+       	<input type='password' placeholder="Enter Password" th:field="*{password}" id='password' class='form-control' required/>
+      </div>
+      <div class='col-md-6'>
+       	<label for="rpassword">Re-Enter Password</label><span> *</span>
+       	<input type='password' Placeholder="Confirm Your Password" name="rpassword" id='rpassword' class='form-control' required/>
+      </div>
+    </div>
+    <div class='row form-group'>
+      <div class='col-md-6'>
+      	<label for="name">Name</label><span> *</span>
+       	<input type='text' Placeholder="Enter Your Name" th:field="*{name}" id='name' class='form-control' required/>
+     </div>
+     <div class='col-md-6'>
+       	<label for="phone">Phone Number</label><span> *</span>
+       	<input type='text' placeholder="Enter the Phone Number" th:field="*{phone}" id='phone' class='form-control' required/>
+      </div>
+    </div>
+    <div class="row form-group">
+    	<div class="col-md-6">
+    		<label for="email">Email</label><span> *</span>
+       	<input type='text' placeholder="Enter Your Email" th:field="*{email}" id='email' class='form-control' required/>
+    	</div>
+    	<div class='col-md-6'>
+       	<label for="address">Address</label><span> *</span>
+       	<input type='text' placeholder="Enter Your Address" th:field="*{address}" id='address' class='form-control' required/>
+      </div>
+    </div>
+     
+   <div class='row form-group'>
+     <div class='col-md-12'>
+       	<button class='btr' onclick="return matchPassword()">Register Me</button>
+       	<input type='button' class='btr' style='background-color:orange' onclick="history.back()" value='Cancel'>
+     </div>
+   </div>
+   <div>
+   	<label>
+   		Mandatory Fields<span> *</span>
+   	</label>
+   </div>
+   </form>
+  </div>
+ </div>
+</div>
+<script>
+function matchPassword()
+{
+    if(document.getElementById('rpassword').value!=document.getElementById('password').value)
+    {
+	  alert("Confirm Password does not match with Password")
+	  return false;
+    }
+    return true;
+}
+</script>
+</body>
+</html>

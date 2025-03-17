@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<style>
+		a:hover {
+			color: rgb(0, 255, 255);
+			background: rgb(0, 255, 64);
+			box-shadow: 0 0 10px rgb(255, 255, 0), 0 0 40px rgb(0, 255, 0), 0 0 80px rgb(0, 255, 255);
+			transition-delay: 0;
+			letter-spacing: 0.1vw;
+		}
+	</style>
+</head>
+
+<body class='homebgi'>
+	<div th:insert="top"></div>
+	<div class='dv'>
+		<a href='book/list?pn=1' class='btl'
+			style='margin-left:2vw'>Update Books</a>
+		<a href='category/list' class='btl' style='margin-left:2vw'>Update Category</a>
+		<a href='publisher/list' class='btl'>Update Publisher</a>
+		<a href='searchbook' class='btl'>Search Books</a>
+	</div>
+</body>
+
+</html>

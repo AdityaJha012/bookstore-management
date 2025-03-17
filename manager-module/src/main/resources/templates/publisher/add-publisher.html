@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="top"></div>
+<body class='addbgi'>
+<form action="save" method="post">
+<table class='tab' style='background-color:antiquewhite'>
+  <tr>
+   	<td class='tatd'>Publisher's Name<span>*</span></td>
+   	<td class='tatd'>
+	  <input class='tbb' type='text' placeholder="Enter Name" id='publisher' name="publisher" required/>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Publisher's Address<span>*</span></td>
+   	<td class='tatd'>
+	  <textarea class='tbb' id='address' placeholder="Enter Address" name="address" required></textarea>
+  	</td>
+  </tr>
+  <tr>
+   	<td class='tatd'>Publisher's Email ID<span>*</span></td>
+   	<td class='tatd'>
+	  <input class='tbb' type='text' placeholder="Enter Email ID" id='email' name="email" required/>
+  	</td>
+  </tr>
+  <tr>
+  	<td class='tatd' colspan="2" align="center">
+   		<button class='btr btn-success'>Insert Publisher</button>
+   		<input type='button' value='Cancel' class='btr' style='background-color:orange' onclick='history.back()'>
+    </td>
+  </tr>
+ </table>
+ <div>
+    	<label class="la">Mandatory Fields<span>*</span></label>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+   <script th:src="@{/JS/script.js}"> </script>
+   <link th:href='@{/CSS/style.css}' rel='stylesheet'>
+   <link th:href='@{/CSS/login.css}' rel='stylesheet'>
+ </head>
+ <body class='logbgi'>
+ <body>
+  <div class='dvv'>
+   <label  style='color:orange;font-size:3vw'>ONLINE BOOK STORE</label>
+  </div>
+  <div align='center'>
+    <div class='dvuser'>
+     <h2 style='font-size:2.1vw'>User Account Sign In</h2>
+     <form action='authentication' method='post'>
+       <div class='dvlog'>
+         <label class='la' style='color:blue'>User ID</label><br>
+         <input type='text' name='uid' th:value="${userid}" class='tblog' placeholder="Enter User ID" required>
+       </div>
+       <div class='dvlog'>
+         <label class='la'>Password</label><br>
+         <input type='password' placeholder="Enter Password" value="cetpa" name='pass' class='tblog' required>
+       </div>	
+       <div class='dvlog' style='margin-top:2vw'>	
+         <button class='btlog'>Sign In</button>
+         <div style="text-align:center;margin-top:1vw" >
+           <label class='la' th:text="${msg}" style='color:red'></label>
+         </div>
+       </div>	
+      </form> 
+    </div>
+    <div class='dvuser' style='padding:5px 10px 10px 10px'>
+     <h2 style='font-size:2.1vw'>Don't have an account?</h2>
+     <div class='dvlog' style='margin-top:1vw'>	
+      <form action='create-account'>
+        <button class='btlog' style='background-color:#008CBA'>Create Account</button>
+      </form>
+     </div>
+  </div>
+  </div>
+ </body>
+</html>

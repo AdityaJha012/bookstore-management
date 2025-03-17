@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ </head>
+ <div th:insert="top"></div>
+ <body class='searchbgi'>
+  <form>
+  <div style='text-align:center'>
+   <label class='la' style='color:green;font-weight:bold' th:text="${'Book list by '+by}"></label>
+  </div> 
+  <div class='container'>
+    <div class='card'>
+      <div class='card-body'>
+      <div class='dvv' th:if="${blist.empty}">
+   		<label class='lah' style='color:red'>Currently, The Bookstore is empty! Come Back Later...</label>
+      </div>
+      <div th:if="${!blist.empty}" class='scrollit'>
+        <table class='table laa'>
+   		 <thead>
+    		<tr><th>Book ID</th><th>Title</th><th>Author</th><th>Category ID</th><th>Publisher ID</th>
+    		<th>Copies</th><th>Price</th><th>Stock</th>
+    		<th style='color:darkmagenta'>Action</th></tr>
+         </thead>
+         <tbody>
+    		<tr th:each="book:${blist}">
+     			<td class='tdr' th:text="${book.bid}"></td>
+     			<td class='tdr' th:text="${book.title}"></td>
+     			<td class='tdr' th:text="${book.author}"></td>
+     			<td class='tdr'><a th:href='@{/bookstore/user/category/details(cid=${book.catid})}' th:text="${book.catid}" style='text-decoration:underline'></a></td>
+     			<td class='tdr'><a th:href='@{/bookstore/user/publisher/details(pid=${book.pubid})}' th:text="${book.pubid}" style='text-decoration:underline'></a></td>
+     			<td class='tdr' th:text="${book.copies}"></td>
+     			<td class='tdr' th:text="${'&#8377'+book.price}"></td>
+     			<td class='tdr' th:if="${book.copies>0}" style='color:green'>In Stock</td>
+     			<td class='tdr' th:if="${book.copies==0}" style='color:red'>Out of Stock</td>
+     			<td class='tdr'>
+     			  <label th:if="${book.copies==0}">Coming soon</label>
+      			  <a th:if="${book.copies>0}" th:href="@{/bookstore/user/purchase(bid=${book.bid})}">Purchase</a>
+      			</td>
+    		</tr>
+   		 </tbody>
+  	   </table>
+     </div>
+     <div class='dvv'>
+     	<a class='btl' href='/bookstore/user/searchbook' style='background-color:orange'>Back</a>
+  	 </div>
+    </div>
+   </div>
+  </div>
+  </form>
+ </body>
+ </html>

@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+ <body class='listbgi'>
+  <div th:insert="top"></div>
+  	<div class='container'>
+  	 <div class='card'>
+  	   <div class='card-body'>
+  	    <div class='dvv' th:if="${catlist.empty}">
+  	      <label class='text-danger lah' style="font-family: algerian;">Category List is Empty!</label>
+  	    </div>
+    	<div th:if="${!catlist.empty}" class='scrollit'>
+    	  <table class='table table-hover'>
+     	   <thead>
+            <tr>
+     			<th class='tdr'>Category ID</th>
+     			<th class='tdr'>Category Name</th>
+     			<th class='tdr'>Category Description</th>
+     			<th class='tdr' style='color:darkmagenta'>Action</th>
+      		</tr>
+         </thead>
+        <tbody>
+         <tr th:each="cat:${catlist}">
+          <td th:text="${cat.catid}"></td>
+          <td th:text="${cat.category}"></td>
+          <td th:text="${cat.description}"></td>
+          <td>
+           <a class='la' th:href='@{edit(cid=${cat.catid})}'>Edit | </a>
+           <a class='la' th:href='@{remove(cid=${cat.catid})}' onclick="confirm('Are you sure to remove?')">Remove</a>
+          </td>
+         </tr>
+        </tbody> 
+       </table>
+    </div>
+    </div>
+   </div>
+    <div class='dvv'>
+     <a class='btl' href='add'>Add New Category</a>
+     <a class='btl' href='../home' style='background-color:orange'>Back</a>
+  </div>
+   </div>
+ </body>
+ </html>

@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="top"></div>
+<body class='homebgi'>
+ <div class='dvv' style='margin-bottom:1vw'>
+   <label th:text="${msg}" style='color:white;font-size:2vw'></label>
+   <a href='/bookstore/user/home' th:if='${msg!=null}' class='btl' style='background-color:orange'>Home</a>
+ </div>
+<form action="updateprofile" method="post" th:object="${user}">
+ <div class='dvt' style="background-color:white; ">
+  <table class='tae'>
+     <tr>
+       	<td class='tatd'>User ID</td>
+       	<td class='tatd'>
+       	<label class='la' th:text="${user.userid}"></label>
+       	<input class='tb' type='hidden' th:field="*{userid}" required/>
+        <input type='hidden' th:field="*{password}" name="password"/></td>
+     </tr>
+     <tr>
+       	<td class='tatd'>Name</td>
+       	<td class='tatd'><input class='tb' placeholder="Enter Edited Name" type='text' th:field="*{name}" id='name' required/></td>
+     </tr>
+     <tr>
+       	<td class='tatd'>Phone Number</td>
+       	<td class='tatd'><input placeholder="Enter Edited Phone Number" class='tb' type='text' th:field="*{phone}" id='phone' required/></td>
+     </tr>
+      <tr>
+       	<td class='tatd'>Email</td>
+       	<td class='tatd'><input placeholder="Enter Edited Email" class='tb' type='text' th:field="*{email}" id='email' required/></td>
+     </tr>
+     <tr>
+       	<td class='tatd'>Address</td>
+       	<td class='tatd'><input placeholder="Enter Edited Address" class='tb' type='text' th:field="*{address}" id='address' required/></td>
+     </tr>
+     <tr>
+       	<td class='tatd' colspan="2" align="center"><button class='btr'>Update Profile</button>
+       	<input type='button' class='btr' style='background-color:orange' onclick="history.back()" value='Back'>
+     </tr>
+    </table>
+    </div>
+   </form>
+ </body>
+</html>

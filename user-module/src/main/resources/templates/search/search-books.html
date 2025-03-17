@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="top"></div>
+<body class='searchbgi'>
+ <table class='searchta'>
+  <tr>
+  <td>
+    <form action="searchbook/byid">
+    <table style="width:100%">
+     <tr>
+   		<td style="width:30%" class='tatd la'>Search by Book's ID</td>
+   		<td style="width:50%" class='tatd'><input type='text' name='bid' class='tbb' required></td>
+   		<td style="width:20%" class='tatd'><button class='btr'>Go</button></td>
+   	 </tr>
+    </table>
+    </form>
+   </td>
+   </tr>
+   <tr>
+   <td>
+    <form action="searchbook/byauthor">
+    <table style="width:100%">
+     <tr>
+   		<td style="width:30%" class='tatd la'>Search by Book's Author</td>
+   		<td style="width:50%" class='tatd'><input type='text' name='author' class='tbb' required></td>
+   		<td style="width:20%" class='tatd'><button class='btr'>Go</button></td>
+   	 </tr>
+    </table>
+    </form>
+   </td>
+  </tr> 
+  <tr>
+   <td>
+    <form action="searchbook/bytitle">
+    <table style="width:100%">
+     <tr>
+   		<td style="width:30%" class='tatd la'>Search by book's title</td>
+   		<td style="width:50%" class='tatd'><input type='text' name='title' class='tbb' required></td>
+   		<td style="width:20%" class='tatd'><button class='btr'>Go</button></td>
+   	 </tr>
+    </table>
+    </form>
+   </td>
+  </tr> 
+  <tr>
+   <td>
+    <form action="searchbook/bycategory">
+    <table style='width:100%'>
+      <tr>
+     	<td style="width:30%" class='tatd la'>Search by book's category</td>
+     	<td style="width:50%" class='tatd'>
+     	<select name="catid" class='tbb' required>
+       	   <option th:each="cat:${clist}" th:text="${cat.category}" th:value="${cat.catid}"></option>
+     	</select></td>
+     	<td style="width:20%" class='tatd'><button class='btr'>Go</button></td>
+   	  </tr>
+   	 </table>
+   	</form>
+   	</td>
+   </tr>
+   <tr>
+   <td>
+    <form action="searchbook/bypublisher">
+    <table style="width:100%">	  
+     <tr>
+     	<td style="width:30%" class='tatd la'>Search by book's publisher</td>
+     	<td style="width:50%" class='tatd'><select name="pubid" class='tbb' required>
+       	 <option th:each="pub:${plist}" th:text="${pub.publisher}" th:value="${pub.pubid}"></option>
+     	</select></td>
+     	<td style="width:20%" class='tatd'><button class='btr'>Go</button></td>
+   	  </tr>
+   	  </table>
+   	  </form>
+   	 </td>
+   	 </tr> 
+   </table>
+   <div class='dvv'>
+   <a class='btl' href='/bookstore/user/home' style='background-color:orange'>Back</a>
+   </div>   
+</body>
+</html>

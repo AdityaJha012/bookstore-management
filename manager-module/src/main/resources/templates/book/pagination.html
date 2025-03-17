@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table style='width:100%'>
+ <tr>
+  <td style='width:30%;text-align: left'>
+   <label style='font-size:2vw;color:orange' th:text="${pn+' of '+tp}"></label>
+  </td>
+  <td style='width:40%;text-align:center'>
+   <a th:if="${pn>5}" class='an' th:href='@{list(pn=${pn-1})}'>Previous</a>
+   <a th:if="${tp<=5}" th:class='${pn==i?"anc":"an"}' th:href='@{list(pn=${i})}' th:each="i:${#numbers.sequence(1,tp,1)}" th:text="${i}">1</a>
+   <a th:if="${tp>5}" th:class='${pn==i?"anc":"an"}' th:href='@{list(pn=${i})}' th:each="i:${#numbers.sequence(1,5,1)}" th:text="${i}">1</a>
+   <a th:if="${tp>5}" class='an' th:href='@{list(pn=${pn+1})}' th:onclick="|return ${pn<tp}|">Next</a>
+  </td>
+  <td style='width:30%;text-align: right'>
+     <a class='btl btn-info' style='color:white' href='/manager/searchbooks'>Search Books</a>
+  </td>
+ </tr>
+</table>
+</html>
