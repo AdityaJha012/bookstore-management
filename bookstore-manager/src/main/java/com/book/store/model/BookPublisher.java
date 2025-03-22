@@ -19,7 +19,6 @@ public class BookPublisher extends Common {
     @SequenceGenerator(name = "book_publisher_seq", sequenceName = "book_publisher_seq", allocationSize = 1)
     private Long id;
     private String name;
-    private int age;
     private String email;
     private String address;
     private String phone;

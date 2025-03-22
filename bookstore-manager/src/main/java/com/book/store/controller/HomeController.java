@@ -1,7 +1,7 @@
 package com.book.store.controller;
 
-import com.book.store.model.BookCategory;
 import com.book.store.service.BookCategoryService;
+import com.book.store.service.BookPublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +16,16 @@ public class HomeController {
     @Autowired
     private BookCategoryService bookCategoryService;
 
+    @Autowired
+    private BookPublisherService bookPublisherService;
+
     @GetMapping("dashboard")
     public String getManagerDashboard(Model model) {
         int categoriesCount = this.bookCategoryService.getCategoriesCount();
+        int publishersCount = this.bookPublisherService.getPublishersCount();
+
         model.addAttribute("categoriesCount", categoriesCount);
+        model.addAttribute("publishersCount", publishersCount);
 
         return "home/dashboard";
     }
