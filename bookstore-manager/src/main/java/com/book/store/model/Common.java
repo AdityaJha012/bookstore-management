@@ -1,11 +1,12 @@
 package com.book.store.model;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.*;
 
 import java.sql.Timestamp;
 
-@Getter
-@Setter
+@MappedSuperclass
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Common {
