@@ -29,7 +29,7 @@ public class BookPublisherServiceImpl implements BookPublisherService {
     }
 
     @Override
-    public BookPublisher getPublisher(Long id) {
+    public BookPublisher getPublisher(long id) {
         return this.bookPublisherRepository.findById(id).orElse(null);
     }
 
@@ -42,7 +42,7 @@ public class BookPublisherServiceImpl implements BookPublisherService {
     }
 
     @Override
-    public void deletePublisher(Long id) {
+    public void deletePublisher(long id) {
         this.bookPublisherRepository.deleteById(id);
     }
 

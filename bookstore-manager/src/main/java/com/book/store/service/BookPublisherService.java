@@ -9,11 +9,11 @@ public interface BookPublisherService {
 
     void savePublisher(BookPublisher bookPublisher);
 
-    BookPublisher getPublisher(Long id);
+    BookPublisher getPublisher(long id);
 
     void updatePublisher(BookPublisher bookPublisher);
 
-    void deletePublisher(Long id);
+    void deletePublisher(long id);
 
     int getPublishersCount();
 }

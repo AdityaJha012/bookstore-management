@@ -1,8 +1,10 @@
 package com.book.store.controller;
 
 import com.book.store.model.Book;
+import com.book.store.model.BookAuthor;
 import com.book.store.model.BookCategory;
 import com.book.store.model.BookPublisher;
+import com.book.store.service.BookAuthorService;
 import com.book.store.service.BookCategoryService;
 import com.book.store.service.BookPublisherService;
 import com.book.store.service.BookService;
@@ -26,6 +28,9 @@ public class BookController {
     private BookPublisherService bookPublisherService;
 
     @Autowired
+    private BookAuthorService bookAuthorService;
+
+    @Autowired
     private BookService bookService;
 
     @GetMapping("list")
@@ -43,11 +48,13 @@ public class BookController {
 
     @GetMapping("add-book")
     private String getAddBookPage(Model model) {
-        final List<BookCategory> categories = bookCategoryService.getAllBookCategories();
-        final List<BookPublisher> publishers = bookPublisherService.getAllBookPublishers();
+        final List<BookCategory> categories = this.bookCategoryService.getAllBookCategories();
+        final List<BookPublisher> publishers = this.bookPublisherService.getAllBookPublishers();
+        final List<BookAuthor> authors = this.bookAuthorService.getAllBookAuthors();
 
         model.addAttribute("categories", categories);
         model.addAttribute("publishers", publishers);
+        model.addAttribute("authors", authors);
 
         return "book/add-book";
     }
@@ -79,7 +86,7 @@ public class BookController {
         return "redirect:list?pageNo=1";
     }
 
-    @PostMapping("delete-book")
+    @GetMapping("delete-book")
     private String deleteBook(long id) {
         this.bookService.deleteBook(id);
 

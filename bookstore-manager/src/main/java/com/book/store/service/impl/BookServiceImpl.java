@@ -1,6 +1,10 @@
 package com.book.store.service.impl;
 
 import com.book.store.model.Book;
+import com.book.store.model.BookCategory;
+import com.book.store.model.BookPublisher;
+import com.book.store.repository.BookCategoryRepository;
+import com.book.store.repository.BookPublisherRepository;
 import com.book.store.repository.BookRepository;
 import com.book.store.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,12 @@ import java.sql.Timestamp;
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
+    private BookCategoryRepository bookCategoryRepository;
+
+    @Autowired
+    private BookPublisherRepository bookPublisherRepository;
+
+    @Autowired
     private BookRepository bookRepository;
 
     @Override
@@ -25,6 +35,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void saveBook(Book book) {
+        final BookCategory category = this.bookCategoryRepository.findById(book.getCategoryId()).orElse(null);
+        final BookPublisher publisher = this.bookPublisherRepository.findById(book.getPublisherId()).orElse(null);
+
+        book.setCategory(category);
+        book.setPublisher(publisher);
         book.setValidFlag('Y');
         book.setCreatedBy("Admin");
         book.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -39,6 +54,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void updateBook(Book book) {
+        final BookCategory category = this.bookCategoryRepository.findById(book.getCategoryId()).orElse(null);
+        final BookPublisher publisher = this.bookPublisherRepository.findById(book.getPublisherId()).orElse(null);
+
+        book.setCategory(category);
+        book.setPublisher(publisher);
         book.setUpdatedBy("Admin");
         book.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 

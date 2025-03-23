@@ -29,7 +29,7 @@ public class BookCategoryServiceImpl implements BookCategoryService {
     }
 
     @Override
-    public BookCategory getCategory(Long id) {
+    public BookCategory getCategory(long id) {
         return this.bookCategoryRepository.findById(id).orElse(null);
     }
 
@@ -42,7 +42,7 @@ public class BookCategoryServiceImpl implements BookCategoryService {
     }
 
     @Override
-    public void deleteCategory(Long id) {
+    public void deleteCategory(long id) {
         this.bookCategoryRepository.deleteById(id);
     }
 

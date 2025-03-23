@@ -1,5 +1,6 @@
 package com.book.store.controller;
 
+import com.book.store.service.BookAuthorService;
 import com.book.store.service.BookCategoryService;
 import com.book.store.service.BookPublisherService;
 import com.book.store.service.BookService;
@@ -21,16 +22,21 @@ public class HomeController {
     private BookPublisherService bookPublisherService;
 
     @Autowired
+    private BookAuthorService bookAuthorService;
+
+    @Autowired
     private BookService bookService;
 
     @GetMapping("dashboard")
     public String getManagerDashboard(Model model) {
         int categoriesCount = this.bookCategoryService.getCategoriesCount();
         int publishersCount = this.bookPublisherService.getPublishersCount();
+        int authorsCount = this.bookAuthorService.getAuthorsCount();
         int booksCount = this.bookService.getBooksCount();
 
         model.addAttribute("categoriesCount", categoriesCount);
         model.addAttribute("publishersCount", publishersCount);
+        model.addAttribute("authorsCount", authorsCount);
         model.addAttribute("booksCount", booksCount);
 
         return "home/dashboard";

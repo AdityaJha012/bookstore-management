@@ -38,7 +38,7 @@ public class BookPublisherController {
     }
 
     @GetMapping("edit-publisher")
-    private String getEditPublisherPage(Long id, Model model) {
+    private String getEditPublisherPage(long id, Model model) {
         BookPublisher publisher = this.bookPublisherService.getPublisher(id);
         model.addAttribute("publisher", publisher);
 
@@ -53,7 +53,7 @@ public class BookPublisherController {
     }
 
     @GetMapping("delete-publisher")
-    private String deletePublisher(Long id) {
+    private String deletePublisher(long id) {
         this.bookPublisherService.deletePublisher(id);
 
         return "redirect:list";

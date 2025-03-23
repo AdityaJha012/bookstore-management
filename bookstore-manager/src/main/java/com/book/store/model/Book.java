@@ -16,9 +16,15 @@ public class Book extends Common {
     @SequenceGenerator(name = "book_seq", sequenceName = "book_seq", allocationSize = 1)
     private Long id;
     private String title;
+    private String description;
     private String[] authors;
     private int copies;
     private double price;
+
+    @Transient
+    private long categoryId;
+    @Transient
+    private long publisherId;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)

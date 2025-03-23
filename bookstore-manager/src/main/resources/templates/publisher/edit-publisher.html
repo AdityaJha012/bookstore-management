@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <link th:href="@{/css/header.css}" rel="stylesheet">
-    <link th:href="@{/css/edit-publisher.css}" rel="stylesheet">
+    <link th:href="@{/css/edit-page.css}" rel="stylesheet">
 </head>
 <body>
     <!-- Header included via Thymeleaf -->
@@ -56,7 +56,7 @@
                                         Publisher Phone No: <span class="required-field">*</span>
                                     </label>
                                     <input class="form-control" id="phone" th:field="*{phone}"
-                                           placeholder="Enter publisher Phone no" maxlength="10" required>
+                                        placeholder="Enter publisher Phone no" maxlength="10" required>
                                 </div>
 
                                 <div class="mb-4">
@@ -64,7 +64,7 @@
                                         Publisher Address:
                                     </label>
                                     <textarea class="form-control" id="address" th:field="*{address}"
-                                              placeholder="Enter publisher address"></textarea>
+                                        placeholder="Enter publisher address"></textarea>
                                 </div>
 
                                 <div class="action-buttons text-center">
@@ -89,5 +89,8 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script th:src="@{/js/common.js}"></script>
 </body>
 </html>

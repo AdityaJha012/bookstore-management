@@ -9,11 +9,11 @@ public interface BookCategoryService {
 
     void saveCategory(BookCategory bookCategory);
 
-    BookCategory getCategory(Long id);
+    BookCategory getCategory(long id);
 
     void updateCategory(BookCategory bookCategory);
 
-    void deleteCategory(Long id);
+    void deleteCategory(long id);
 
     int getCategoriesCount();
 }

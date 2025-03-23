@@ -38,7 +38,7 @@ public class BookCategoryController {
     }
 
     @GetMapping("edit-category")
-    private String getEditCategoryPage(Long id, Model model) {
+    private String getEditCategoryPage(long id, Model model) {
         BookCategory category = this.bookCategoryService.getCategory(id);
         model.addAttribute("category", category);
 
@@ -53,7 +53,7 @@ public class BookCategoryController {
     }
 
     @GetMapping("delete-category")
-    private String deleteCategory(Long id) {
+    private String deleteCategory(long id) {
         this.bookCategoryService.deleteCategory(id);
 
         return "redirect:list";
