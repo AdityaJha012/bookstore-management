@@ -70,10 +70,15 @@ public class BookController {
     private String getEditBookPage(long id, Model model) {
         final List<BookCategory> categories = this.bookCategoryService.getAllBookCategories();
         final List<BookPublisher> publishers = this.bookPublisherService.getAllBookPublishers();
+        final List<BookAuthor> authors = this.bookAuthorService.getAllBookAuthors();
         final Book book = this.bookService.getBook(id);
+
+        book.setCategoryId(book.getCategory().getId());
+        book.setPublisherId(book.getPublisher().getId());
 
         model.addAttribute("categories", categories);
         model.addAttribute("publishers", publishers);
+        model.addAttribute("authors", authors);
         model.addAttribute("book", book);
 
         return "book/edit-book";

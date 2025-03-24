@@ -1,0 +1,55 @@
+.search-summary {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-left: 4px solid #0d6efd;
+}
+
+.search-term {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.btn-new-search {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn-new-search:hover {
+    background-color: #0b5ed7;
+    color: white;
+}
+
+.btn-back {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+    color: white;
+}
+
+.empty-results {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.empty-results i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.empty-results h4 {
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.empty-results p {
+    color: #6c757d;
+}
