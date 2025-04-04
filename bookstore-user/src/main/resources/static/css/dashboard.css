@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #5e72e4;
+    --secondary-color: #2dce89;
+    --text-color: #344767;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dashboard Cards */
+.dashboard-container {
+    padding: 2rem 0;
+}
+
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #212529;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #e9ecef;
+}
+
+.dashboard-card i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #6c757d;
+}
+
+.dashboard-card h3 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}

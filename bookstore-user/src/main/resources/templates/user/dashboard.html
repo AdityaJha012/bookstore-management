@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Management - User Dashboard</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link th:href="@{/css/header.css}" rel="stylesheet">
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<!-- Insert header from template file -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Dashboard Content -->
+<div class="container dashboard-container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="dashboard-header text-center">
+                <h1>Welcome to Your Bookstore</h1>
+                <p class="lead">Discover, purchase, and manage your book collection</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-3">
+            <a href="books/search" class="dashboard-card">
+                <i class="fas fa-search"></i>
+                <h3>Search Books</h3>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="books/purchase" class="dashboard-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Purchase Books</h3>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="transactions/view" class="dashboard-card">
+                <i class="fas fa-receipt"></i>
+                <h3>View Transactions</h3>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="profile" class="dashboard-card">
+                <i class="fas fa-user-circle"></i>
+                <h3>My Profile</h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 and jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
