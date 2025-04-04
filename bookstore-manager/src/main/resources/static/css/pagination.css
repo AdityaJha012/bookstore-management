@@ -47,24 +47,6 @@
     pointer-events: none;
 }
 
-/* Search button styling */
-.btn-search {
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    border-radius: 5px;
-}
-
-.btn-search:hover {
-    background-color: #26af74;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    color: white;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .pagination-container .row {
