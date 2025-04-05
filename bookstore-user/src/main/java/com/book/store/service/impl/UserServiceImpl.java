@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
         String encryptedPassword = AESUtil.encrypt(user.getPassword());
         user.setPassword(encryptedPassword);
 
-        user.setIsValid('Y');
+        user.setValidFlag('Y');
         user.setCreatedBy("Admin");
         user.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 

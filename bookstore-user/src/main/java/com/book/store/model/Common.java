@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @MappedSuperclass
 public class Common {
-    private char isValid;
+    private char validFlag;
     private String createdBy;
     private Timestamp createdAt;
     private String updatedBy;

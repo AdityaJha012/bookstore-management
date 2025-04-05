@@ -87,7 +87,7 @@
             </div>
 
             <!-- Pagination included via Thymeleaf -->
-            <div th:if="${totalPages > 0}" th:replace="~{fragments/pagination :: pagination(${pageNo}, ${totalPages}, 'list', 5, '/bookstore/manager/search-book', true)}"></div>
+            <div th:if="${totalPages > 0}" th:replace="~{fragments/pagination :: pagination(${pageNo}, ${totalPages}, 'list', 5)}"></div>
         </div>
     </div>
 
