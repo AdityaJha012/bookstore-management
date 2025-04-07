@@ -18,9 +18,11 @@ public class UserTransaction extends Common {
     @SequenceGenerator(name = "user_transaction_seq", sequenceName = "user_transaction_seq", allocationSize = 1)
     private Long id;
 
-    private String userName;
-    private long bid;
+    @Column(unique = true, nullable = false)
+    private String orderId;
+
+    private long userId;
+    private long bookId;
     private int quantity;
-    private int price;
-    private Timestamp transactionDate;
+    private double price;
 }

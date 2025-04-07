@@ -172,3 +172,9 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(255, 129, 0, 0.3);
 }
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 129, 0, 0.4);
+    background: linear-gradient(to right, #ff7b00, #ff4500);
+}
