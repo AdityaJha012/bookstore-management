@@ -4,6 +4,7 @@ import com.book.store.model.User;
 import com.book.store.repository.UserRepository;
 import com.book.store.service.UserService;
 import com.book.store.util.AESUtil;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean authenticateUser(User user) throws Exception {
+    public boolean authenticateUser(User user, HttpSession session) throws Exception {
         Optional<User> userOpt = userRepository.findByUserName(user.getUserName());
         if (userOpt.isPresent()) {
-            String decryptedPassword = AESUtil.decrypt(userOpt.get().getPassword());
-            return decryptedPassword.equals(user.getPassword());
+            final User savedUser = userOpt.get();
+
+            String decryptedPassword = AESUtil.decrypt(savedUser.getPassword());
+            boolean passwordCheck = decryptedPassword.equals(user.getPassword());
+
+            if (passwordCheck) {
+                session.setAttribute("userId", savedUser.getId());
+                session.setAttribute("userName", savedUser.getUserName());
+                session.setAttribute("fullName", savedUser.getFullName());
+
+                return true;
+            } else {
+                return false;
+            }
         }
         return false;
     }

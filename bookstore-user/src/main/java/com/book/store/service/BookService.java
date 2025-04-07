@@ -5,4 +5,6 @@ import org.springframework.data.domain.Page;
 
 public interface BookService {
     Page<Book> getAllBooks(int pageNo);
+
+    Book getBookById(long id);
 }

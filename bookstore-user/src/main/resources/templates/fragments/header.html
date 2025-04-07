@@ -21,7 +21,8 @@
         <div class="row align-items-center">
             <div class="col-md-4">
                 <span class="welcome">
-                    <i class="fas fa-user-circle me-2"></i>Hello, User!
+                    <i class="fas fa-user-circle me-2"></i>
+                    Hello, <span th:text="${session.fullName}">User</span>!
                 </span>
             </div>
             <div class="col-md-4 text-center">

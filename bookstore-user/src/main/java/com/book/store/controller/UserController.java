@@ -2,6 +2,7 @@ package com.book.store.controller;
 
 import com.book.store.model.User;
 import com.book.store.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("login-user")
-    private String authenticateUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
+    private String authenticateUser(@ModelAttribute User user, RedirectAttributes redirectAttributes, HttpSession session) {
         try {
-            boolean loginStatus = this.userService.authenticateUser(user);
+            boolean loginStatus = this.userService.authenticateUser(user, session);
 
             if (loginStatus) {
                 redirectAttributes.addFlashAttribute("successMessage", "User Logged in Successfully!");
