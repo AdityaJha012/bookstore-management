@@ -72,6 +72,13 @@ public class BookServiceImpl implements BookService {
         return new PurchaseResult(book, userTransaction);
     }
 
+    @Override
+    public Page<UserTransaction> getAllUserTransactions(Long userId, int pageNo) {
+        Pageable pageable = PageRequest.of(pageNo, 5);
+
+        return this.userTransactionRepository.findAllByUserId(userId, pageable);
+    }
+
     private void updateBookCopies(int quantity, long bookId) {
         this.bookRepository.updateBookCopies(quantity, bookId);
     }
