@@ -7,4 +7,8 @@ public interface UserService {
     void registerUser(User user) throws Exception;
 
     boolean authenticateUser(User user, HttpSession session) throws Exception;
+
+    User getUserByUserId(Long userId);
+
+    void updateUserDetails(User user);
 }

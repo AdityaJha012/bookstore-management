@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean authenticateUser(User user, HttpSession session) throws Exception {
         Optional<User> userOpt = userRepository.findByUserName(user.getUserName());
+
         if (userOpt.isPresent()) {
             final User savedUser = userOpt.get();
 
@@ -48,5 +49,15 @@ public class UserServiceImpl implements UserService {
             }
         }
         return false;
+    }
+
+    @Override
+    public User getUserByUserId(Long userId) {
+        return this.userRepository.findById(userId).orElse(null);
+    }
+
+    @Override
+    public void updateUserDetails(User user) {
+        this.userRepository.save(user);
     }
 }
