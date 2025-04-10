@@ -10,6 +10,11 @@ body {
     border: none;
 }
 
+.data-property {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
 .card-header {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
@@ -43,6 +48,36 @@ body {
 .table thead th {
     font-weight: 600;
     color: #495057;
+}
+
+/* Column width control for transaction table */
+.transaction-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.col-serial {
+    width: 5%;
+}
+
+.col-id {
+    width: 10%;
+}
+
+.col-qty {
+    width: 12%;
+}
+
+.col-price {
+    width: 12%;
+}
+
+.col-total {
+    width: 15%;
+}
+
+.col-date {
+    width: 46%;
 }
 
 .hover-badge:hover {
@@ -140,7 +175,7 @@ body {
     border-radius: 30px;
 }
 
-.books-title {
+.transactions-title {
     font-family: 'Playfair Display', serif;
     color: #6a11cb;
     font-size: 1.8rem;
@@ -151,7 +186,7 @@ body {
     padding-bottom: 15px;
 }
 
-.books-title::after {
+.transactions-title::after {
     content: '';
     position: absolute;
     bottom: 0;
